@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit  {
 onSubmit()
 {
     console.log(this.model);
-    console.log(this.new_coding_languages);
+    //console.log(this.new_coding_languages);
 }
 
 

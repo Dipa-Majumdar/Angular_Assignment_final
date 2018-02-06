@@ -1,0 +1,21 @@
+<h1>Employee list</h1>
+<table>
+    <thead>
+        <td>First Name</td>
+        <td>LastName</td>
+        <td>Email</td>
+        <td>Contact</td>
+        <td>Address</td>
+        <td>Username</td>
+        <td>Password</td>
+        <td>Qualification</td>
+        <td>Coding Languages</td>
+    </thead>
+    <tbody>
+                <tr *ngFor="let element of emp_array">
+                    <td>
+                        {{element}}
+                    </td>
+                </tr>
+            </tbody>
+    </table>

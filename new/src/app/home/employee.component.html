@@ -63,17 +63,13 @@
 				<div  *ngFor = "let lang of coding_languages">
                <label><input type = "checkbox" (change)="chk_lang(lang)">{{lang}}</label>
                 </div>
-				
 			</div>
-
-				
-			
 		<br><br>
-		<input type="button" class="btn btn-primary"  value="Submit" (click)="onSubmit()">
-
+		<input type="button" class="btn btn-primary"  value="Submit" (click)="onSubmit(model,a_array)">
+		<br><br><br><br>
 			<!--<button class="btn btn-primary" type="submit" id="submit">Submit</button>-->
 				</form>
-		
+				
 		</div>
 
 

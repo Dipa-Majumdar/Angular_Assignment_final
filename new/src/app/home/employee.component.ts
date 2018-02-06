@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Employee} from '../models/employee.model';
+import { SharedServiceComponent } from '../shared.services';
+import {Router} from '@angular/router';
 @Component({
-  selector: 'home',
+  //selector: 'home',
   styleUrls: ['./employee.component.css'],
   templateUrl: './employee.component.html'
 })
@@ -9,19 +11,22 @@ export class HomeComponent implements OnInit  {
  	experiences : number[];
   qualifications: string[];
   coding_languages: string[];  
- new_coding_languages= [];
+  new_coding_languages= [];
+  a_array: Array<Employee>;
+  emp: SharedServiceComponent;
+  router: Router;
 
-
-						
-
+  constructor(public messageService: SharedServiceComponent , public _router: Router) { 
+  this.a_array=new Array<Employee>();
+  this.emp=new SharedServiceComponent();
+  this.router=_router;
+  }
 
 
  ngOnInit(): void{
   this.qualifications=['Graduation','under-graduation','post-graduation'];
   this.experiences=[1,2,3,4,5];
   this.coding_languages=['C/C++','Java','C#','Python','Ruby'];
-  
-
  }
 
   model = new Employee('','','','','','','', '',this.new_coding_languages);
@@ -42,15 +47,16 @@ export class HomeComponent implements OnInit  {
                 }
                 else
                 {this.new_coding_languages.push(lang);}
-               // console.log();
+           
             }
-onSubmit()
+
+onSubmit(model)
 {
     console.log(this.model);
-    //console.log(this.new_coding_languages);
+    this.a_array.push(model);
+    this.emp.add_employee(this.a_array);
+    this.router.navigate(['/table']);
 }
-
-
 }
 
 

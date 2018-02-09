@@ -1,0 +1,59 @@
+<div class="container">
+
+<h1>Employee list</h1>
+<table>
+    <thead>
+        <td>First Name</td>
+        <td>LastName</td>
+        <td>Email</td>
+        <td>Contact</td>
+        <td>Address</td>
+        <td>Username</td>
+        <td>Password</td>
+        <td>Qualification</td>
+        <td>Coding Languages</td>
+    </thead>
+    <tbody>
+                <tr *ngFor="let element of ele">
+                    <td>
+                        {{ element.FirstName }}
+                    </td>
+                    <td>
+                        {{ element.LastName }}
+                    </td>
+                    <td>
+                         {{element.Email}}
+                    </td>
+                    <td>
+                         {{element.Contact}}
+                    </td>
+                    <td>
+                         {{element.Address}}
+                    </td>
+                    <td>
+                        {{element.UserName}}
+                    </td>
+                    <td>
+                         {{element.Password}}
+                  </td>
+                    <td>
+                         {{element.qualification_name}}
+                    </td>
+                     <td>
+                          {{element.experience_name}}
+                     </td>
+                    <td>
+                        {{element.new_coding_languages}}
+                    </td>
+                    <td>
+                     <input type="button" class="btn btn-primary"  value="edit" (click)="onEdit(element);">
+                    </td>
+                    <td>
+                      <input type="button" class="btn btn-primary"  value="delete" (click)="onDelete(element);">
+                    </td>
+                </tr>
+            </tbody>
+    </table>
+</div>
+
+ 

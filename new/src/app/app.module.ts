@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/employee.component';
-import { TableComponent} from './table/employee_list.component';
+import {Employee_list_Component} from './employee_list_folder/employee_list_folder.component';
 import { SharedServiceComponent } from './shared.services';
 import { RepoBrowserComponent } from './github/repo-browser/repo-browser.component';
 import { RepoListComponent } from './github/repo-list/repo-list.component';
@@ -22,20 +22,19 @@ import { ContactComponent } from './contact/contact.component';
     AboutComponent,
     RepoBrowserComponent,
     RepoListComponent,
-    TableComponent,
-    RepoDetailComponent,
+   Employee_list_Component,
+     RepoDetailComponent,
     HomeComponent,
-    ContactComponent
+     ContactComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      { path: 'home', component: HomeComponent},
-      { path:'',redirectTo: '/home', pathMatch: 'full'},
-      ])
+    RouterModule.forRoot(
+      rootRouterConfig
+    )
   ],
   providers: [
     GithubService,SharedServiceComponent

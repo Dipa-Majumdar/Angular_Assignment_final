@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Employee} from '../models/employee.model';
 import { SharedServiceComponent } from '../shared.services';
-import {Router} from '@angular/router';
+import {Router,ActivatedRoute,ParamMap} from '@angular/router';
+// import 'rxjs/add/operator/switchMap';
+
 @Component({
   //selector: 'home',
   styleUrls: ['./employee.component.css'],
@@ -12,24 +14,37 @@ export class HomeComponent implements OnInit  {
   qualifications: string[];
   coding_languages: string[];  
   new_coding_languages= [];
-  a_array: Array<Employee>;
+  route: ActivatedRoute;
   emp: SharedServiceComponent;
   router: Router;
+   emp_array: Array<Employee> =new Array<Employee>();
+i: any;
+e: any;
+  constructor(public _messageService: SharedServiceComponent ,public _route:ActivatedRoute, public _router: Router) { 
 
-  constructor(public messageService: SharedServiceComponent , public _router: Router) { 
-  this.a_array=new Array<Employee>();
-  this.emp=new SharedServiceComponent();
-  this.router=_router;
+  
   }
-
+ model = new Employee('','','','','','','', '',this.new_coding_languages);
 
  ngOnInit(): void{
   this.qualifications=['Graduation','under-graduation','post-graduation'];
   this.experiences=[1,2,3,4,5];
   this.coding_languages=['C/C++','Java','C#','Python','Ruby'];
- }
+  this.e=this._route.snapshot.params['some'];
 
-  model = new Employee('','','','','','','', '',this.new_coding_languages);
+
+  this.emp_array=this._messageService.get();
+for(this.i=0;this.i<this.emp_array.length;this.i++)
+{
+  if(this.e==this.emp_array[this.i].FirstName)
+  {
+    this.model=this.emp_array[this.i];
+  }
+}
+}
+ 
+
+ 
    chk_lang(lang: string)
             { 
               var flag=0;
@@ -52,10 +67,11 @@ export class HomeComponent implements OnInit  {
 
 onSubmit(model)
 {
-    console.log(this.model);
-    this.a_array.push(model);
-    this.emp.add_employee(this.a_array);
-    this.router.navigate(['/table']);
+     console.log(this.model);
+    this._messageService.add_employee(model);
+     this._router.navigate(['/employee_list_folder']);
+    // window.location.href['/employee_list_folder'];
+     
 }
 }
 

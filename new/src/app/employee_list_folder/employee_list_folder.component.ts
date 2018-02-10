@@ -29,5 +29,9 @@ i: any;
           this.emp_array.splice(this.i,1);
           console.log(this.emp_array);  
   }
+  onAdd()
+  {
+     this._router.navigate(['home']);
+  }
 
 }

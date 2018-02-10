@@ -24,7 +24,7 @@ e: any;
 
   
   }
- model = new Employee('','','','','','','', '',this.new_coding_languages);
+ model = new Employee('','','','','','','', '','',this.new_coding_languages);
 
  ngOnInit(): void{
   this.qualifications=['Graduation','under-graduation','post-graduation'];
@@ -35,15 +35,13 @@ e: any;
 
   this.emp_array=this._messageService.get();
 for(this.i=0;this.i<this.emp_array.length;this.i++)
-{
-  if(this.e==this.emp_array[this.i].FirstName)
-  {
-    this.model=this.emp_array[this.i];
-  }
-}
-}
- 
-
+      {
+            if(this.e==this.emp_array[this.i].FirstName)
+            {
+              this.model=this.emp_array[this.i];
+            }
+        }
+      }
  
    chk_lang(lang: string)
             { 
@@ -65,14 +63,12 @@ for(this.i=0;this.i<this.emp_array.length;this.i++)
            
             }
 
-onSubmit(model)
-{
-     console.log(this.model);
-    this._messageService.add_employee(model);
-     this._router.navigate(['/employee_list_folder']);
-    // window.location.href['/employee_list_folder'];
-     
-}
+  onSubmit(model)
+  {
+      console.log(this.model);
+      this._messageService.add_employee(model);
+      this._router.navigate(['/employee_list_folder']);
+  }
 }
 
 

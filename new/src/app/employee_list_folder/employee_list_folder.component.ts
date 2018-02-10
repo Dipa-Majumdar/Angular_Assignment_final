@@ -3,9 +3,9 @@ import {HomeComponent} from '../home/employee.component';
 import {Employee} from '../models/employee.model';
 import {SharedServiceComponent} from '../shared.services';
 import {Router, NavigationExtras} from '@angular/router';
-//import {HomeComponent} from '../home/employee.component';
+
 @Component({
-  // selector: 'table',
+  
   styleUrls: ['./employee_list_folder.component.css'],
   templateUrl: './employee_list_folder.component.html'
 })
@@ -20,23 +20,14 @@ i: any;
   }
 
   onEdit(e) {
-    // let navigationExtras: NavgationExtras = {
-
-    // }
     this._router.navigate(['home', e.FirstName]);
 
   }
-  onDelete(e)
+  onDelete(a)
   {
           this.emp_array=this._messageService.get();
-              for(this.i=0;this.i<this.emp_array.length;this.i++)
-              {
-                if(e==this.emp_array[this.i].FirstName)
-                {
-                delete this.emp_array[this.i];
-                
-                }
-              }
+          this.emp_array.splice(this.i,1);
+          console.log(this.emp_array);  
   }
 
 }

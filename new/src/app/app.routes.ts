@@ -11,10 +11,11 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { ContactComponent } from './contact/contact.component';
 
 export const rootRouterConfig: Routes = [
+   { path: 'employee_list_folder', component: Employee_list_Component },
   { path: 'home/:some', component: HomeComponent },
 {path: 'home', component: HomeComponent},
-{path:'',redirectTo:'/home',pathMatch: 'full'},
-  { path: 'employee_list_folder', component: Employee_list_Component },
+{path:'',redirectTo:'/employee_list_folder',pathMatch: 'full'},
+ 
   
   { path: 'about', component: AboutComponent },
   {

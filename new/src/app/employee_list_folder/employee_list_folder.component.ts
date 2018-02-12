@@ -20,8 +20,7 @@ i: any;
   }
 
   onEdit(e) {
-    this._router.navigate(['home', e.FirstName]);
-
+    this._router.navigate(['home', e.FirstName]); 
   }
   onDelete(a)
   {

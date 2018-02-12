@@ -46,13 +46,12 @@
                           {{element.experience_name}}
                      </td>
                     <td>
-                        {{element.new_coding_languages}}
+                        
+                        <div *ngFor="let lang of element.coding_languages">
+                            <div *ngIf="lang.isEnabled">
+                        {{lang.Name}}</div></div>
+                       
                     </td>
-                   
-                    
-                
-                
-         
                     <td>
                      <input type="button" class="btn btn-primary"  value="edit" (click)="onEdit(element);">
                     </td>
@@ -62,12 +61,14 @@
                     
                 </tr>
             </tbody>
+             
     </table>
     <table>
         <td>
      <input type="button" class="btn btn-primary"  value="Add Employee" (click)="onAdd();">
         </td>
     </table>
+     
 </div>
 
  

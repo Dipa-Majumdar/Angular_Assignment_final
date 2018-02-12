@@ -9,6 +9,6 @@ export class Employee{
         public Password: string,
         public gen: string,
         public qualification_name: string,
-        public new_coding_languages: string[]
+        public coding_languages: any[]
     ){}
 }
